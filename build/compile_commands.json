@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/cezar/nix_experiments/sturdy-broccoli/build",
+  "command": "/nix/store/7wkshj58fcsl1f3zyi67qsxgl1p8nki1-gcc-wrapper-12.2.0/bin/g++ -Dsturdy_broccoli_EXPORTS -I/home/cezar/nix_experiments/sturdy-broccoli/include -isystem /nix/store/dclg31r2xfkm204225i7a3sxrgfimqvf-SDL2-2.26.5-dev/include/SDL2 -g -fPIC -o CMakeFiles/sturdy-broccoli.dir/src/sturdy-broccoli.cpp.o -c /home/cezar/nix_experiments/sturdy-broccoli/src/sturdy-broccoli.cpp",
+  "file": "/home/cezar/nix_experiments/sturdy-broccoli/src/sturdy-broccoli.cpp"
+}
+]

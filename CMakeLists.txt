@@ -6,38 +6,38 @@ cmake_minimum_required(VERSION 3.5)
 # Set the project name
 project (sturdy-broccoli)
 
-# find_package(Eigen3 REQUIRED)
-
-# find_package(spdlog REQUIRED)
-
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
     src/sturdy-broccoli.cpp
 )
 
 # Add an executable with the above sources
-add_executable(sturdy-broccoli ${SOURCES})
+add_library(sturdy-broccoli SHARED ${SOURCES})
 
-# add_subdirectory(Flake_2)
+find_package(SDL2 REQUIRED)
+target_link_libraries(sturdy-broccoli  ${SDL2_LIBRARIES})
 
-# target_link_libraries(sturdy-broccoli PUBLIC spdlog::spdlog  Eigen3::Eigen Flake_2)
+target_include_directories(sturdy-broccoli PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+    ${SDL2_INCLUDE_DIRS}
+)
 
-target_link_libraries(sturdy-broccoli)
+install(TARGETS sturdy-broccoli EXPORT BroccoliTargets
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+)
 
-# include_directories(${SPDLOG_INCLUDE_DIR})
+install(DIRECTORY include/ DESTINATION include)
+install(EXPORT BroccoliTargets FILE Broccoli.cmake DESTINATION lib/cmake/Broccoli)
 
-# message(${SPDLOG_INCLUDE_DIR}) 
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    Broccoli.cmake
+    VERSION 0.1
+    COMPATIBILITY AnyNewerVersion
+)
 
-# find_package (Eigen3 REQUIRED)
-
-# include_directories(${EIGEN_INCLUDE_DIR} ${SPDLOG_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}/include )
-
-include_directories(${PROJECT_SOURCE_DIR}/include )
-
-# Set the directories that should be included in the build command for this target
-# when running g++ these will be included as -I/directory/path/
-# target_include_directories(Kinematics
-#     PRIVATE 
-#         ${PROJECT_SOURCE_DIR}/include
-# )
-
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/Broccoli.cmake"
+        DESTINATION lib/cmake/Broccoli
+)

@@ -1,0 +1,7 @@
+/home/cezar/nix_experiments/sturdy-broccoli/build/CMakeFiles/sturdy-broccoli.dir
+/home/cezar/nix_experiments/sturdy-broccoli/build/CMakeFiles/edit_cache.dir
+/home/cezar/nix_experiments/sturdy-broccoli/build/CMakeFiles/rebuild_cache.dir
+/home/cezar/nix_experiments/sturdy-broccoli/build/CMakeFiles/list_install_components.dir
+/home/cezar/nix_experiments/sturdy-broccoli/build/CMakeFiles/install.dir
+/home/cezar/nix_experiments/sturdy-broccoli/build/CMakeFiles/install/local.dir
+/home/cezar/nix_experiments/sturdy-broccoli/build/CMakeFiles/install/strip.dir
