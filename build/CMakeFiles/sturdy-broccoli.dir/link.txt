@@ -1,1 +1,0 @@
-/nix/store/7wkshj58fcsl1f3zyi67qsxgl1p8nki1-gcc-wrapper-12.2.0/bin/g++ -fPIC -g -shared -Wl,-soname,libsturdy-broccoli.so -o libsturdy-broccoli.so "CMakeFiles/sturdy-broccoli.dir/src/sturdy-broccoli.cpp.o"  /nix/store/prlj29zdiqlbsip0j85lwnnqm7syaz4k-SDL2-2.26.5/lib/libSDL2.so 
