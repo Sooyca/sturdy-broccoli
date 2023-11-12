@@ -15,7 +15,7 @@ set(SOURCES
 add_library(sturdy-broccoli SHARED ${SOURCES})
 
 find_package(SDL2 REQUIRED)
-target_link_libraries(sturdy-broccoli  ${SDL2_LIBRARIES})
+target_link_libraries(sturdy-broccoli PUBLIC $<BUILD_INTERFACE:SDL2::SDL2>)
 
 target_include_directories(sturdy-broccoli PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -29,15 +29,15 @@ install(TARGETS sturdy-broccoli EXPORT BroccoliTargets
 )
 
 install(DIRECTORY include/ DESTINATION include)
-install(EXPORT BroccoliTargets FILE Broccoli.cmake DESTINATION lib/cmake/Broccoli)
+install(EXPORT BroccoliTargets FILE BroccoliConfig.cmake DESTINATION lib/cmake/Broccoli)
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
-    Broccoli.cmake
+    BroccoliConfig.cmake
     VERSION 0.1
     COMPATIBILITY AnyNewerVersion
 )
 
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/Broccoli.cmake"
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/BroccoliConfig.cmake"
         DESTINATION lib/cmake/Broccoli
 )
