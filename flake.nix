@@ -27,6 +27,13 @@
         "-DENABLE_TESTING=OFF"
         "-DENABLE_INSTALL=ON"
       ];
+
+      postInstall = ''
+        # FIXME: handle cases where multiple modules want to provide CMAKE_MODULE_PATH
+
+        mkdir -p $out/nix-support/
+        echo "export cmakeFlags=\"\$cmakeFlags -DCMAKE_MODULE_PATH=$out/cmake-modules/\"" > $out/nix-support/setup-hook
+      '';
     };
   });
 }

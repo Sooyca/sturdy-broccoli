@@ -39,5 +39,9 @@ write_basic_package_version_file(
 )
 
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/BroccoliConfig.cmake"
-        DESTINATION lib/cmake/Broccoli
+    DESTINATION lib/cmake/Broccoli
+)
+
+install(FILES "${CMAKE_SOURCE_DIR}/cmake-modules/BroccoliModule.cmake"
+        DESTINATION cmake-modules/
 )
