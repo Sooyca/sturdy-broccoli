@@ -30,6 +30,6 @@ int broccoli() {
     SDL_Delay(2000);
     SDL_DestroyWindow(window);
     SDL_Quit();
-    std::cout << "Version 1" << std::endl << std::endl;
+    printf("Version 3");
     return 0;
 }
